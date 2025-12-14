@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { performanceImages, performanceImgPositions } from "../constants/index.js";
+import { performanceImages, performanceImgPositions } from "../Constants/index.js";
 
 // ✅ Custom hook to detect mobile
 const useIsMobile = () => {
