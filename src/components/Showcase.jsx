@@ -1,9 +1,25 @@
-import {useMediaQuery} from "react-responsive";
 import {useGSAP} from "@gsap/react";
 import gsap from 'gsap';
+import { useEffect, useState } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
+const useIsTablet = () => {
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsTablet(window.innerWidth <= 768);
+
+    check(); // initial check
+    window.addEventListener("resize", check);
+
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return isTablet;
+};
 const Showcase = () => {
-    const isTablet = useMediaQuery({ query: '(max-width: 768px)'});
+    const isTablet = useIsTablet();
 
     useGSAP(() => {
         if(!isTablet) {
