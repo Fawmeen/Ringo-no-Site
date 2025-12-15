@@ -8,7 +8,7 @@ const useIsTablet = () => {
   const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
-    const check = () => setIsTablet(window.innerWidth <= 768);
+    const check = () => setIsTablet(window.innerWidth <= 1024);
 
     check(); // initial check
     window.addEventListener("resize", check);
